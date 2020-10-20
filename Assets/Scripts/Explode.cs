@@ -87,9 +87,8 @@ public class Explode : MonoBehaviour
             {
                 component.transformObject.position = Vector3.Lerp(component.transformObject.position, component.explodedPosition, explosionSpeed / 100F);
 
-                if (Vector3.Distance(component.transformObject.position, component.explodedPosition) == 0)
+                if (Vector3.Distance(component.transformObject.position, component.explodedPosition) <= 0)
                 {
-                    component.transformObject.Translate(component.originalPosition);
                     isMoving = false;
                     isInExplodedView = false;
                 }
@@ -103,9 +102,8 @@ public class Explode : MonoBehaviour
             {
                 component.transformObject.position = Vector3.Lerp(component.transformObject.position, component.originalPosition, explosionSpeed / 100F);
 
-                if (Vector3.Distance(component.transformObject.position, component.originalPosition) == 0)
-                {
-                    
+                if (Vector3.Distance(component.transformObject.position, component.originalPosition) <= 0)
+                {            
                     isMoving = false;
                     isInExplodedView = true;
                 }
