@@ -18,11 +18,11 @@ public class Explode : MonoBehaviour
     public GameObject explosionCenter;
     public string explodableTag = "";
     public float explosionFactor = 5F;
-    public float explosionSpeed = 1f;
-
+    public float explosionSpeed = 8f;
 
     private List<Transform> taggedObjects;
     List<ExplodyComponent> explodyItems;
+    bool toggleExplode = false;
     bool isInExplodedView = false;
     bool isMoving = false;
 
@@ -56,6 +56,11 @@ public class Explode : MonoBehaviour
             ToggleExplodeView();
         }
 
+    }
+
+    private void FixedUpdate()
+    {
+        
         if (isMoving)
         {
             MoveExplodyComponents(isInExplodedView);
